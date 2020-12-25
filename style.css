@@ -1,0 +1,266 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+body {
+  color: hsl(232, 13%, 33%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  flex-direction: column;
+  background-color: hsl(240, 78%, 98%);
+  background-image: url(images/bg-top.svg), url(images/bg-bottom.svg);
+  background-position: right 0vh, left bottom;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.container {
+  width: 80%;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .top {
+  position: absolute;
+  top: 0px;
+  margin-top: 2rem;
+}
+.container header {
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-bottom: 1.7rem;
+}
+.top {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+}
+.price-toggle span {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: hsl(233, 13%, 49%);
+}
+/* price toggler */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 25px;
+  margin: 0 20px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: -1px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsl(237, 63%, 64%);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 19px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+input:checked + .slider {
+  background-color: hsl(236, 72%, 79%);
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px hsl(237, 63%, 64%);
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* price toggler ends */
+
+/* cards grids */
+.card-grid {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(20rem, 1fr));
+  grid-template-rows: 22rem;
+}
+
+.card {
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 10px;
+}
+.card-header {
+  padding: 10px;
+  margin-top: 10px;
+}
+.card:hover {
+  box-shadow: 5px 5px 13px rgba(0, 0, 0, 0.6);
+}
+.card-1,
+.card-3 {
+  box-shadow: 3px 3px 13px rgba(0, 0, 0, 0.3);
+}
+.card-2 {
+  height: 25rem;
+  color: white;
+  background-image: linear-gradient(
+    to bottom,
+    hsl(236, 72%, 79%),
+    hsl(237, 63%, 64%)
+  );
+  position: relative;
+  top: -18px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.card .card-price {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 3.2rem;
+}
+.card-price .dollar {
+  margin-right: 10px;
+  font-size: 1.8rem;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  padding: 10px 25px;
+}
+.card ul {
+  list-style: none;
+  line-height: 3;
+}
+
+.card li {
+  border-top: 1px solid hsl(234, 14%, 74%);
+}
+.card li:last-child {
+  border-bottom: 1px solid hsl(234, 14%, 74%);
+}
+
+.btn {
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+}
+.btn:hover,
+.btn:active {
+  background: white;
+  color: hsl(237, 63%, 64%);
+  border: 1px solid hsl(233, 13%, 49%);
+}
+.card-2 .btn {
+  background: white;
+  color: hsl(237, 63%, 64%);
+}
+
+.card-2 .btn:hover,
+.card-2 .btn:active {
+  color: white;
+  background-color: hsl(237, 63%, 64%);
+  border: 1px solid white;
+}
+
+footer {
+  position: relative;
+  top: 50px;
+}
+
+@media (max-width: 720px) {
+  body {
+    background-image: url(images/bg-top.svg);
+    background-position: 166px -50px;
+    background-repeat: no-repeat, no-repeat;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .container header {
+    font-weight: 700;
+    font-size: 1.6rem;
+  }
+  .top {
+    position: relative;
+    top: 5rem;
+  }
+  .card-grid {
+    margin-top: 10rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+  }
+  .card-2 {
+    height: auto;
+    position: initial;
+  }
+  footer {
+    position: relative;
+    top: 5rem;
+  }
+}
+
+@media (min-height: 800px) and (max-height: 1000px) {
+  header {
+    margin-top: 20px;
+  }
+  .container header {
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-bottom: 5rem;
+  }
+}
